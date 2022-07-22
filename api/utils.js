@@ -15,6 +15,14 @@ const filterNulls = (arr) => arr.filter((elem) => elem !== null);
 /* takes in an array and filters out all elems without "@" */
 const filterEmails = (arr) => arr.filter((elem) => elem.includes("@"));
 
+const filterUrls = (arr) => arr.filter((elem) => elem.includes("http"));
+
 //DOM parsing
 
-module.exports = { removeHttps, stripChars, filterNulls, filterEmails };
+module.exports = {
+  removeHttps,
+  stripChars,
+  filterNulls,
+  filterEmails,
+  filterUrls,
+};
