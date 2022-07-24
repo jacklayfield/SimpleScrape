@@ -2,7 +2,7 @@ const cheerio = require("cheerio");
 const fetch = require("node-fetch");
 
 //helper methods
-const { filterEmails, filterUrls } = require("./utils");
+const { filterEmails, filterUrls, sanitizeUrl } = require("./utils");
 
 //all tags
 tags = [];
@@ -16,17 +16,26 @@ async function scrapeSites(urls) {
   }
   let time = Date.now() - start;
 
-  const emailTags = filterEmails(tags);
+  const urlTags = filterUrls(tags);
   // const urlTags = filterUrls(tags);
+  const urlTagsClean = sanitizeUrl(urlTags);
 
   console.log(tags);
-  console.log(emailTags);
+  console.log(urlTags);
+  console.log(urlTagsClean);
   console.log("Execution time: " + time + " milliseconds");
 }
 
 /* Scrapes a single website's html and returns all <a> tags */
 async function scrapeSingleSite(url) {
-  const response = await fetch(url);
+  const opts = {
+    headers: {
+      cookie: "SRCHHPGUSR': 'NRSLT=50",
+    },
+  };
+  const response = await fetch(
+    "https://www." + "google.com/search?q=test&num=100"
+  );
   const body = await response.text();
   const $ = cheerio.load(body);
   // console.log(body);
@@ -40,7 +49,7 @@ async function scrapeSingleSite(url) {
 }
 
 scrapeSites([
-  "https://www.nutstop.com/product-category/nuts-seeds/peanuts/",
-  "https://www.lanierlawfirm.com/",
+  // "https://www.nutstop.com/product-category/nuts-seeds/peanuts/",
+  // "https://www.lanierlawfirm.com/",
   "https://www.akc.org/dog-breeds/",
 ]);
