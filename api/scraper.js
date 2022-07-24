@@ -15,27 +15,12 @@ async function scrapeSites(urls) {
     await scrapeSingleSite(urls[i]);
   }
   let time = Date.now() - start;
-
-  const urlTags = filterUrls(tags);
-  // const urlTags = filterUrls(tags);
-  const urlTagsClean = sanitizeUrl(urlTags);
-
-  console.log(tags);
-  console.log(urlTags);
-  console.log(urlTagsClean);
   console.log("Execution time: " + time + " milliseconds");
 }
 
 /* Scrapes a single website's html and returns all <a> tags */
 async function scrapeSingleSite(url) {
-  const opts = {
-    headers: {
-      cookie: "SRCHHPGUSR': 'NRSLT=50",
-    },
-  };
-  const response = await fetch(
-    "https://www." + "google.com/search?q=test&num=100"
-  );
+  const response = await fetch(url);
   const body = await response.text();
   const $ = cheerio.load(body);
   // console.log(body);
@@ -48,8 +33,37 @@ async function scrapeSingleSite(url) {
   });
 }
 
-scrapeSites([
-  // "https://www.nutstop.com/product-category/nuts-seeds/peanuts/",
-  // "https://www.lanierlawfirm.com/",
-  "https://www.akc.org/dog-breeds/",
-]);
+async function scrapeSearchEngine(keyword) {
+  var urls = [];
+  //set cookies (currently not functional)
+  // const opts = {
+  //   headers: {
+  //     cookie: "SRCHHPGUSR; NRSLT=100",
+  //   },
+  // };
+  const response = await fetch(
+    "https://www.bing.com/search?q=" + keyword
+    // opts
+  );
+  const body = await response.text();
+  const $ = cheerio.load(body);
+
+  //parse html to find links
+  $(".b_algo cite").each((_, e) => {
+    let row = $(e).text().replace(/(\s+)/g, " ");
+    // console.log(`${row}`);
+    urls.push(`${row}`);
+  });
+
+  // const urlTags = filterUrls(urls);
+  // const urlTagsClean = sanitizeUrl(urlTags);
+
+  return urls;
+}
+
+async function main() {
+  res = await scrapeSearchEngine("guitar");
+  console.log(res);
+}
+
+main();

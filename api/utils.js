@@ -18,7 +18,7 @@ const filterEmails = (arr) => arr.filter((elem) => elem.includes("@"));
 /* takes in an array and filters out all elems without "www." */
 const filterUrls = (arr) => arr.filter((elem) => elem.includes("www."));
 
-/* takes in an array with strings containing urls and isolates them */
+/* takes in an array with strings containing urls and isolates them (useful for engines that don't make scraping easy)*/
 function sanitizeUrl(arr) {
   tmpVals = [];
 
