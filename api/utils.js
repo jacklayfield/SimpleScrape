@@ -12,6 +12,9 @@ const stripChars = (num) => num.replace(/\D/g, "");
 /* takes in an array and filters out null values */
 const filterNulls = (arr) => arr.filter((elem) => elem !== null);
 
+/* takes in an array and filters out blank values */
+const filterBlanks = (arr) => arr.filter((elem) => elem !== "");
+
 /* takes in an array and filters out all elems without "@" */
 const filterEmails = (arr) => arr.filter((elem) => elem.includes("@"));
 
@@ -48,4 +51,5 @@ module.exports = {
   filterEmails,
   filterUrls,
   sanitizeUrl,
+  filterBlanks,
 };
