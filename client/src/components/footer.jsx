@@ -7,7 +7,7 @@ export function Footer() {
       <div
         class="text-center p-1"
         style={{
-          background: "#66ccff",
+          background: "#212529",
           color: "#777777",
           fontFamily: "Trebuchet MS",
           fontStyle: "italic",

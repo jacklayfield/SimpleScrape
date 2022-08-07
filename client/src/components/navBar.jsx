@@ -26,13 +26,13 @@ export function NavBar() {
         <Nav className="me-auto">
           <Nav.Link
             style={{ paddingLeft: 30, fontSize: 20, fontWeight: 500 }}
-            href="#home"
+            href="/scraper"
           >
             Scraper
           </Nav.Link>
           <Nav.Link
             style={{ paddingLeft: 30, fontSize: 20, fontWeight: 500 }}
-            href="#features"
+            href="/about"
           >
             About
           </Nav.Link>
