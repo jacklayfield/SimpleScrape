@@ -36,7 +36,15 @@ async function scrapeSingleSite(url) {
     let row = $(e).text().replace(/(\s+)/g, " ");
     // console.log(`${row}`);
     tags.push(`${row}`);
+
+    //checking for contact tab if so, record it
+    if (`${row}`.includes("Contact")) {
+      console.log(`${row}`);
+      console.log("success");
+    }
   });
+
+  /* IDEA: Use puppeteer to navigate to a contacts page if one is found after an initial parse through */
 }
 
 // async function scrapeSearchEngine(keyword) {
@@ -115,13 +123,17 @@ async function scrapeSearchEngine(keyword) {
   console.log(flatArray.length);
 
   console.log(finalArray);
+  for (j = 0; j < finalArray.length; j++) {
+    console.log(finalArray[j]);
+  }
   console.log(finalArray.length);
 
   browser.close();
 }
 
 async function main() {
-  res = await scrapeSearchEngine("dog");
+  // res = await scrapeSearchEngine("lawyer");
+  res = await scrapeSingleSite("https://www.southerncrosskitchen.com");
   console.log(res);
 }
 
