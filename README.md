@@ -7,9 +7,11 @@ Tool used to scrape the web, looking to collect information in order to connect 
 To do: <br />
 ------------------------------------------------------------------------------------- 
 Develop single page search <br />
+-> Contact page traversal <br />
 Refine keyword search <br />
 -> Use puppeteer or other tool to beter navigate <br />
 Develop feature to generate related keywords <br />
+Set up middle-ware to link api to client. <br />
 
 Set up / running instructions: <br />
 ------------------------------------------------------------------------------------- 
