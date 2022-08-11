@@ -29,6 +29,7 @@ async function scrapeSingleSite(url) {
   const response = await fetch(url);
   const body = await response.text();
   const $ = cheerio.load(body);
+  var contactPage = false;
   // console.log(body);
 
   //grab <a> tags, add them to tags list
@@ -37,12 +38,26 @@ async function scrapeSingleSite(url) {
     // console.log(`${row}`);
     tags.push(`${row}`);
 
-    //checking for contact tab if so, record it
+    /* checking for contact tab if so, record it. 
+    (Do the check here to avoid unnecessarily opening a Pupeteer browser for non-existent contact page) */
     if (`${row}`.includes("Contact")) {
       console.log(`${row}`);
       console.log("success");
+      contactPage = true;
+    }
+
+    if (contactPage) {
+      contactPageScrape(url);
     }
   });
+
+  /* Will open a headless puppeteer browser to navigate to and extract contact information */
+  async function contactPageScrape(url) {
+    const browser = await puppeteer.launch({ headless: true });
+    const page = await browser.newPage();
+
+    await page.goto(url);
+  }
 
   /* IDEA: Use puppeteer to navigate to a contacts page if one is found after an initial parse through */
 }
