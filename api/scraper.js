@@ -97,6 +97,7 @@ Therefore, we must switch to puppeteer headless browser for now.
 
 */
 async function scrapeSearchEngine(keyword) {
+  let start = Date.now();
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
@@ -144,12 +145,21 @@ async function scrapeSearchEngine(keyword) {
   console.log(finalArray.length);
 
   browser.close();
+  let time = Date.now() - start;
+  console.log("Execution time: " + time / 1000 + " seconds");
+
+  return all_sites;
 }
 
 async function main() {
-  // res = await scrapeSearchEngine("lawyer");
-  res = await scrapeSingleSite("https://www.southerncrosskitchen.com");
+  res = await scrapeSearchEngine("frogs");
+  // res = await scrapeSingleSite("https://www.southerncrosskitchen.com");
   console.log(res);
+  return res;
 }
 
-main();
+module.exports = {
+  main,
+};
+
+// main();
