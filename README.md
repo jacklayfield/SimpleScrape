@@ -25,3 +25,7 @@ Notes: <br />
 May be moving to client side processing <br />
 Server side doesn't pose any benefit in our case, and current implementation <br />
 isn't thread safe apparently <br />
+
+UPDATE: <br />
+After further research, it makes more sense to handle this outside the client <br />
+Will need to look further into solutions <br />
