@@ -22,5 +22,8 @@
     "nodemon": "^2.0.19",
     "puppeteer": "^16.0.0",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.22.0"
   }
 }

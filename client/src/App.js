@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PageLayout } from "./components/pageLayout";
-import { Scraper } from "./pages/scraper";
+import { Main } from "./pages/main";
 import { About } from "./pages/about";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <Router>
       <PageLayout>
         <Routes>
-          <Route path="/scraper" element={<Scraper />} />
+          <Route path="/main" element={<Main />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </PageLayout>

@@ -26,7 +26,7 @@ export function NavBar() {
         <Nav className="me-auto">
           <Nav.Link
             style={{ paddingLeft: 30, fontSize: 20, fontWeight: 500 }}
-            href="/scraper"
+            href="/main"
           >
             Scraper
           </Nav.Link>

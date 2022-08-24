@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import axios from "axios";
 // import cheerio from "cheerio";
 
-export function Scraper() {
+export function Main() {
   // const [loading, setLoading] = useState(true);
   // const [data, setData] = useState(true);
   const [keyword, setKeyword] = useState(true);
@@ -29,7 +29,7 @@ export function Scraper() {
     };
     try {
       await axios.post("/data", newKeyword);
-      window.location.replace("http://localhost:3000/scraper");
+      // window.location.replace("http://localhost:3000/scraper");
     } catch (error) {
       console.log("error with posting");
     }

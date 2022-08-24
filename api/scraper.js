@@ -1,4 +1,5 @@
 const cheerio = require("cheerio");
+const { json } = require("express");
 const fetch = require("node-fetch");
 const puppeteer = require("puppeteer");
 
@@ -11,13 +12,13 @@ const {
 } = require("./utils");
 
 //all tags
-tags = [];
+let tags = [];
 
 /* calls scrapeSingleSite for all urls passed */
 async function scrapeSites(urls) {
   let start = Date.now();
   //loop through urls. Must use loop in order to await.
-  for (i = 0; i < urls.length; i++) {
+  for (let i = 0; i < urls.length; i++) {
     await scrapeSingleSite(urls[i]);
   }
   let time = Date.now() - start;
@@ -61,35 +62,6 @@ async function scrapeSingleSite(url) {
 
   /* IDEA: Use puppeteer to navigate to a contacts page if one is found after an initial parse through */
 }
-
-// async function scrapeSearchEngine(keyword) {
-//   var urls = [];
-//   //set cookies (currently not functional)
-//   // const opts = {
-//   //   headers: {
-//   //     cookie: "SRCHHPGUSR; NRSLT=100",
-//   //   },
-//   // };
-//   const response = await fetch(
-//     "https://www.bing.com/search?q=" + keyword + "&first=11&FORM=PERE"
-//     // opts
-//   );
-//   const body = await response.text();
-//   const $ = cheerio.load(body);
-
-//   //parse html to find links
-//   $(".b_algo cite").each((_, e) => {
-//     let row = $(e).text().replace(/(\s+)/g, " ");
-//     // console.log(`${row}`);
-//     urls.push(`${row}`);
-//   });
-
-//   // const urlTags = filterUrls(urls);
-//   // const urlTagsClean = sanitizeUrl(urlTags);
-
-//   return urls;
-// }
-
 /* New scraper for the Search engine
 
 Unfortunately, node-fetch does not retreive bing results with & tags properly
@@ -106,7 +78,7 @@ async function scrapeSearchEngine(keyword) {
   const all_sites = [];
 
   //traverse through first 8 pages of results
-  for (i = 0; i < 8; i++) {
+  for (let i = 0; i < 8; i++) {
     await page.goto(
       "https://www.bing.com/search?q=" +
         keyword +
@@ -115,19 +87,21 @@ async function scrapeSearchEngine(keyword) {
         "&FORM=PERE"
     );
 
+    // console.log(keyword + " " + i);
+
     const data = await page.evaluate(function () {
       const events = document.querySelectorAll(".b_algo cite");
       const cur_sites = [];
 
-      for (i = 0; i < events.length; i++) {
-        cur_sites.push(events[i].innerText);
+      for (let j = 0; j < events.length; j++) {
+        cur_sites.push(events[j].innerText);
       }
       return cur_sites;
     });
 
-    console.log(data);
+    // console.log(data);
     num_res += data.length;
-    console.log(num_res);
+    // console.log(num_res);
 
     all_sites.push(data);
   }
@@ -135,27 +109,33 @@ async function scrapeSearchEngine(keyword) {
   let flatArray = [].concat(...all_sites);
   let finalArray = filterBlanks(flatArray);
 
-  console.log(flatArray);
-  console.log(flatArray.length);
+  await browser.close();
 
-  console.log(finalArray);
-  for (j = 0; j < finalArray.length; j++) {
-    console.log(finalArray[j]);
-  }
-  console.log(finalArray.length);
-
-  browser.close();
   let time = Date.now() - start;
-  console.log("Execution time: " + time / 1000 + " seconds");
+  console.log(
+    "Execution time: " +
+      time / 1000 +
+      " seconds, " +
+      finalArray.length +
+      " results retrieved"
+  );
 
-  return all_sites;
+  return finalArray;
 }
 
-async function main() {
-  res = await scrapeSearchEngine("frogs");
+async function main(keyword) {
+  const res = await scrapeSearchEngine(keyword);
+
   // res = await scrapeSingleSite("https://www.southerncrosskitchen.com");
-  console.log(res);
+  // for (let i = 0; i < 2; i++) {
+  //   console.log(`Waiting ${i} seconds...`);
+  //   await sleep(i * 1000);
+  // }
   return res;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 module.exports = {

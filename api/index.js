@@ -18,7 +18,7 @@ app.post("/data", async (req, res) => {
   try {
     console.log("Connected");
     console.log(req.body);
-    const theData = await scraper.main();
+    const theData = await scraper.main(req.body.keyword);
     console.log("data" + theData);
 
     res.status(200).json(theData);
