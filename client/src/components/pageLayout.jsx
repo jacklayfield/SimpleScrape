@@ -1,7 +1,7 @@
 import React from "react";
 import { NavBar } from "../components/navBar";
 import { Footer } from "../components/footer";
-import background from "../background1.jpg";
+import background from "../blackwp1.jpg";
 
 export function PageLayout({ children }) {
   return (
