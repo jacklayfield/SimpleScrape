@@ -3,7 +3,7 @@ const { json } = require("express");
 const fetch = require("node-fetch");
 const puppeteer = require("puppeteer");
 
-//helper methods
+// helper methods
 const {
   filterEmails,
   filterUrls,
@@ -11,7 +11,7 @@ const {
   filterBlanks,
 } = require("./utils");
 
-//all tags
+// all tags
 let tags = [];
 
 /* calls scrapeSingleSite for all urls passed */
@@ -31,9 +31,8 @@ async function scrapeSingleSite(url) {
   const body = await response.text();
   const $ = cheerio.load(body);
   var contactPage = false;
-  // console.log(body);
 
-  //grab <a> tags, add them to tags list
+  // grab <a> tags, add them to tags list
   $("a").each((_, e) => {
     let row = $(e).text().replace(/(\s+)/g, " ");
     // console.log(`${row}`);
@@ -60,7 +59,6 @@ async function scrapeSingleSite(url) {
     await page.goto(url);
   }
 
-  /* IDEA: Use puppeteer to navigate to a contacts page if one is found after an initial parse through */
 }
 /* New scraper for the Search engine
 
@@ -77,7 +75,7 @@ async function scrapeSearchEngine(keyword) {
 
   const all_sites = [];
 
-  //traverse through first 8 pages of results
+  // traverse through first 8 pages of results
   for (let i = 0; i < 8; i++) {
     await page.goto(
       "https://www.bing.com/search?q=" +
@@ -86,8 +84,6 @@ async function scrapeSearchEngine(keyword) {
         num_res +
         "&FORM=PERE"
     );
-
-    // console.log(keyword + " " + i);
 
     const data = await page.evaluate(function () {
       const events = document.querySelectorAll(".b_algo cite");
@@ -125,12 +121,6 @@ async function scrapeSearchEngine(keyword) {
 
 async function main(keyword) {
   const res = await scrapeSearchEngine(keyword);
-
-  // res = await scrapeSingleSite("https://www.southerncrosskitchen.com");
-  // for (let i = 0; i < 2; i++) {
-  //   console.log(`Waiting ${i} seconds...`);
-  //   await sleep(i * 1000);
-  // }
   return res;
 }
 
