@@ -4,6 +4,8 @@ import { PageLayout } from "./components/pageLayout";
 import { Main } from "./pages/main";
 import { About } from "./pages/about";
 import { Profile } from "./pages/profile";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
   return (

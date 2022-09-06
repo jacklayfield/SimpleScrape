@@ -13,9 +13,11 @@ export function Profile() {
     "Scrape22",
     "Test Scrape",
   ];
-  const half = Math.ceil(cards.length / 2);
-  const half1 = cards.slice(0, half);
-  const half2 = cards.slice(half, cards.length);
+  const quarter = Math.ceil(cards.length / 4);
+  const q1 = cards.slice(0, quarter);
+  const q2 = cards.slice(quarter, quarter * 2);
+  const q3 = cards.slice(quarter * 2, quarter * 3);
+  const q4 = cards.slice(quarter * 3, cards.length);
   return (
     <div>
       <Row className="gx-0">
@@ -24,14 +26,22 @@ export function Profile() {
             <div className="sectionTitles">
               <header className="sectionTitlesText">My Scrape Results</header>
             </div>
-            <Row>
-              <Col>
-                <ScrapeCards scrapeCards={half1}></ScrapeCards>
-              </Col>
-              <Col>
-                <ScrapeCards scrapeCards={half2}></ScrapeCards>
-              </Col>
-            </Row>
+            <div style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 10 }}>
+              <Row>
+                <Col>
+                  <ScrapeCards scrapeCards={q1}></ScrapeCards>
+                </Col>
+                <Col>
+                  <ScrapeCards scrapeCards={q2}></ScrapeCards>
+                </Col>
+                <Col>
+                  <ScrapeCards scrapeCards={q3}></ScrapeCards>
+                </Col>
+                <Col>
+                  <ScrapeCards scrapeCards={q4}></ScrapeCards>
+                </Col>
+              </Row>
+            </div>
           </div>
         </Col>
       </Row>

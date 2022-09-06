@@ -6,7 +6,7 @@ export function ScrapeCards({ scrapeCards }) {
   return (
     <div>
       {revScrapeCards.map((a) => (
-        <div style={{ padding: 10 }}>
+        <div style={{ paddingBottom: 10 }}>
           <ScrapeCard scrapeCard={a} />
         </div>
       ))}

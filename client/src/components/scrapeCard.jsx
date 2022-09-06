@@ -7,7 +7,7 @@ export function ScrapeCard({ scrapeCard }) {
   return (
     <div
       style={{
-        background: "lightgray",
+        background: "#212529",
         border: "2px solid",
         borderRadius: "10px",
         borderColor: "gray",
@@ -15,22 +15,19 @@ export function ScrapeCard({ scrapeCard }) {
         padding: 10,
       }}
     >
-      <h1>{scrapeCard}</h1>
-      <div>
-        <Row>
-          <Col>
-            <button type="sumbit" class="btn btn-success btn-default pull-left">
-              <span class="glyphicon glyphicon-off"></span> Download
-            </button>
-          </Col>{" "}
-          <Col>
-            {" "}
-            <button type="sumbit" class="btn btn-warning btn-default pull-left">
-              <span class="glyphicon glyphicon-off"></span> Preview
-            </button>
-          </Col>
-        </Row>
-      </div>
+      <h4 style={{ color: "lightgray" }}>{scrapeCard}</h4>
+      <Row>
+        <div style={{ paddingBottom: 10 }} class="d-grid gap-2">
+          <button class="btn btn-success" type="button">
+            <i class="fa-solid fa-file-arrow-down fa-lg"></i>
+          </button>{" "}
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-file-lines fa-lg"></i>
+          </button>
+        </div>
+      </Row>
     </div>
   );
 }
