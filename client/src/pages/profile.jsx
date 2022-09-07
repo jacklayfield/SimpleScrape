@@ -6,13 +6,8 @@ import { ScrapeCards } from "../components/scrapeCards";
 // import cheerio from "cheerio";
 
 export function Profile() {
-  const cards = [
-    "MyScrape1",
-    "Example",
-    "Big Scrape",
-    "Scrape22",
-    "Test Scrape",
-  ];
+  //this needs work
+  const cards = ["1", "2", "3", "4"];
   const quarter = Math.ceil(cards.length / 4);
   const q1 = cards.slice(0, quarter);
   const q2 = cards.slice(quarter, quarter * 2);
@@ -26,7 +21,7 @@ export function Profile() {
             <div className="sectionTitles">
               <header className="sectionTitlesText">My Scrape Results</header>
             </div>
-            <div style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 10 }}>
+            <div style={{ paddingLeft: 20, paddingRight: 20, paddingTop: 20 }}>
               <Row>
                 <Col>
                   <ScrapeCards scrapeCards={q1}></ScrapeCards>
