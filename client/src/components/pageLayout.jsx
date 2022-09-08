@@ -16,18 +16,9 @@ export function PageLayout({ children }) {
       }}
     >
       <NavBar />
-      <div
-        style={{
-          width: "100%",
-          background: "rgb(227, 227, 227)",
-          paddingBottom: 32,
-          backgroundImage: "url(" + background + ")",
-          backgroundSize: 2000,
-          paddingTop: 87,
-        }}
-      >
-        {children}
-      </div>
+
+      {children}
+
       <Footer />
     </div>
   );

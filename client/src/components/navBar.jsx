@@ -4,39 +4,52 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import logo from "../ss4.png";
 import text from "../ss4text.png";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 export function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark" fixed="top">
-      <Container className="m-2">
-        <img
-          alt=""
-          src={logo}
-          width="55"
-          height="55"
-          className="d-inline-block align-top"
-        />
-        <img
-          alt=""
-          src={text}
-          width="65"
-          height="45"
-          className="d-inline-block align-top"
-        />
-        <Nav className="me-auto">
-          <Nav.Link
-            style={{ paddingLeft: 30, fontSize: 20, fontWeight: 500 }}
-            href="/main"
-          >
-            Scraper
-          </Nav.Link>
-          <Nav.Link
-            style={{ paddingLeft: 30, fontSize: 20, fontWeight: 500 }}
-            href="/about"
-          >
-            About
-          </Nav.Link>
-        </Nav>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand>
+          <img
+            alt=""
+            src={logo}
+            width="55"
+            height="55"
+            href="/"
+            className="d-inline-block align-top"
+          />
+          <img
+            alt=""
+            src={text}
+            width="75"
+            height="55"
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link
+              style={{ paddingLeft: 30, fontSize: 20, fontWeight: 500 }}
+              href="/main"
+            >
+              Scraper
+            </Nav.Link>
+            <Nav.Link
+              style={{ paddingLeft: 30, fontSize: 20, fontWeight: 500 }}
+              href="/about"
+            >
+              About
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link eventKey={2} href="#">
+              <i style={{ color: "gray" }} class="fa-solid fa-user"></i>
+              <> </> Sign In
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
