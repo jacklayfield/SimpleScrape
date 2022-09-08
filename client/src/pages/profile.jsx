@@ -7,7 +7,22 @@ import { ScrapeCards } from "../components/scrapeCards";
 
 export function Profile() {
   //this needs work
-  const cards = ["1", "2", "3", "4"];
+  const cards = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+  ];
   const quarter = Math.ceil(cards.length / 4);
   const q1 = cards.slice(0, quarter);
   const q2 = cards.slice(quarter, quarter * 2);

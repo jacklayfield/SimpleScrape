@@ -3,8 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import logo from "../ss4.png";
-import text from "../ss4text.png";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import text from "../logo1.png";
 
 export function NavBar() {
   return (
@@ -14,15 +13,15 @@ export function NavBar() {
           <img
             alt=""
             src={logo}
-            width="55"
-            height="55"
+            width="50"
+            height="50"
             href="/"
             className="d-inline-block align-top"
           />
           <img
             alt=""
             src={text}
-            width="75"
+            width="100"
             height="55"
             className="d-inline-block align-top"
           />
@@ -44,7 +43,7 @@ export function NavBar() {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link eventKey={2} href="#">
+            <Nav.Link eventKey={2} href="/profile">
               <i style={{ color: "gray" }} class="fa-solid fa-user"></i>
               <> </> Sign In
             </Nav.Link>
