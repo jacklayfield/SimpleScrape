@@ -12,6 +12,7 @@ Refine keyword search <br />
 -> Use puppeteer or other tool to beter navigate <br />
 Develop feature to generate related keywords <br />
 Set up middle-ware to link api to client. <br />
+Mobile compatability (https://goshacmd.com/different-mobile-desktop-tablet-layouts-react/) <br>
 
 Set up / running instructions: <br />
 ------------------------------------------------------------------------------------- 
