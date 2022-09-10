@@ -7,16 +7,24 @@ export function PageLayout({ children }) {
   return (
     <div
       style={{
-        width: "100vw",
         height: "100vh",
         background: "rgb(227, 227, 227)",
         backgroundImage: "url(" + background + ")",
         backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        overflowY: "auto",
       }}
     >
       <NavBar />
 
-      <div style={{ paddingBottom: 62 }}>{children}</div>
+      <div
+        style={{
+          paddingBottom: 62,
+          paddingTop: 81,
+        }}
+      >
+        {children}
+      </div>
 
       <Footer />
     </div>
