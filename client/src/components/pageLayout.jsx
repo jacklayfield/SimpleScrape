@@ -8,7 +8,7 @@ export function PageLayout({ children }) {
     <div
       style={{
         height: "100vh",
-        background: "rgb(227, 227, 227)",
+        width: "100vw",
         backgroundImage: "url(" + background + ")",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
@@ -19,8 +19,8 @@ export function PageLayout({ children }) {
 
       <div
         style={{
-          paddingBottom: 62,
-          paddingTop: 81,
+          paddingBottom: 20,
+          minHeight: "calc(100vh - 113px)",
         }}
       >
         {children}

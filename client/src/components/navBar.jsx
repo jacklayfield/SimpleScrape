@@ -7,7 +7,7 @@ import text from "../logo1.png";
 
 export function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
       <Container>
         <Navbar.Brand>
           <img
