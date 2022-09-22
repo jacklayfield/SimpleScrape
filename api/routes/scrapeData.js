@@ -11,12 +11,27 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/data=:dataid", async (req, res) => {
+//get a single scrape data json object by id
+router.get("/id=:id", async (req, res) => {
   try {
-    const scrapeData = await ScrapeData.find({
-      scrapeData: { $regex: req.params.scrapeData },
-    });
-    res.status(200).json(score);
+    const theData = await ScrapeData.findById(req.params.id);
+    res.status(200).json(theData);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+//get all scrape data for a given user (to be implemented)
+router.get("/", async (req, res) => {
+  const username = req.query.user;
+  try {
+    let theData;
+    if (username) {
+      TheData = await ScrapeData.find({ creator: username });
+    } else {
+      theData = await ScrapeData.find();
+    }
+    res.status(200).json(theData);
   } catch (error) {
     res.status(500).json(error);
   }
