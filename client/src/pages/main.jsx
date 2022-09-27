@@ -14,7 +14,7 @@ export function Main() {
       keyword,
     };
     try {
-      await axios.post("/data", newKeyword);
+      await axios.post("/api/scrapeData", newKeyword);
       // window.location.replace("http://localhost:3000/scraper");
     } catch (error) {
       console.log("error with posting");

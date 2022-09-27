@@ -58,7 +58,6 @@ async function scrapeSingleSite(url) {
 
     await page.goto(url);
   }
-
 }
 /* New scraper for the Search engine
 
@@ -74,6 +73,7 @@ async function scrapeSearchEngine(keyword) {
   var num_res = 1;
 
   const all_sites = [];
+  console.log(keyword);
 
   // traverse through first 8 pages of results
   for (let i = 0; i < 8; i++) {

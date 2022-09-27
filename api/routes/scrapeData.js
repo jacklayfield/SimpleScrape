@@ -1,10 +1,15 @@
 const router = require("express").Router();
 const ScrapeData = require("../models/ScrapeData");
+const scraper = require("../scraper");
 
+//scrape and post
 router.post("/", async (req, res) => {
   const newData = new ScrapeData(req.body);
   try {
-    const savedNewData = await newData.save();
+    console.log(req.body.keyword);
+    const theData = await scraper.main(req.body.keyword);
+    console.log("data" + theData);
+    //const savedNewData = await newData.save();
     res.status(200).json(savedNewData);
   } catch (error) {
     res.status(500).json(error);
