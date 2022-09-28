@@ -4,14 +4,22 @@ const scraper = require("../scraper");
 
 //scrape and post
 router.post("/", async (req, res) => {
-  const newData = new ScrapeData(req.body);
   try {
     console.log(req.body.keyword);
+
+    // executing actual scraper
     const theData = await scraper.main(req.body.keyword);
-    console.log("data" + theData);
-    //const savedNewData = await newData.save();
+
+    //getting result in JSON object to create new 'ScrapeData' JSON object
+    const resultData = {
+      rawData: theData,
+    };
+
+    const newData = new ScrapeData(resultData);
+    const savedNewData = await newData.save();
     res.status(200).json(savedNewData);
   } catch (error) {
+    console.log("error");
     res.status(500).json(error);
   }
 });
