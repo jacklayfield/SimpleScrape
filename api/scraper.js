@@ -12,27 +12,36 @@ const {
 } = require("./utils");
 
 // all tags
-let tags = [];
 
 /* calls scrapeSingleSite for all urls passed */
 async function scrapeSites(urls) {
+  let combinedTags = [];
+  // console.log("Here");
   let start = Date.now();
   //loop through urls. Must use loop in order to await.
   for (let i = 0; i < urls.length; i++) {
-    await scrapeSingleSite(urls[i]);
+    const curTags = await scrapeSingleSite(urls[i]);
+    // console.log("\n\n\n<CURTAGS" + i + ">\n\n\n" + curTags);
+    combinedTags = combinedTags.concat(curTags);
+    console.log(combinedTags.length);
   }
   let time = Date.now() - start;
+
   console.log("Execution time: " + time + " milliseconds");
+
+  return combinedTags;
 }
 
 /* Scrapes a single website's html and returns all <a> tags */
 async function scrapeSingleSite(url) {
+  let tags = [];
   const response = await fetch(url);
   const body = await response.text();
   const $ = cheerio.load(body);
   var contactPage = false;
 
   // grab <a> tags, add them to tags list
+  // console.log("Here");
   $("a").each((_, e) => {
     let row = $(e).text().replace(/(\s+)/g, " ");
     // console.log(`${row}`);
@@ -42,12 +51,13 @@ async function scrapeSingleSite(url) {
     (Do the check here to avoid unnecessarily opening a Pupeteer browser for non-existent contact page) */
     if (`${row}`.includes("Contact")) {
       console.log(`${row}`);
-      console.log("success");
+      //console.log("success");
       contactPage = true;
     }
 
     if (contactPage) {
-      contactPageScrape(url);
+      //console.log("contact page found!");
+      // contactPageScrape(url);
     }
   });
 
@@ -58,6 +68,8 @@ async function scrapeSingleSite(url) {
 
     await page.goto(url);
   }
+
+  return tags;
 }
 /* New scraper for the Search engine
 
@@ -121,7 +133,10 @@ async function scrapeSearchEngine(keyword) {
 
 async function main(keyword) {
   const res = await scrapeSearchEngine(keyword);
-  return res;
+  const res2 = await scrapeSites(res);
+  console.log("the result:" + res2);
+  console.log(res2.length);
+  return res2;
 }
 
 function sleep(ms) {
