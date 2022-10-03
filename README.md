@@ -19,7 +19,7 @@ Set up / running instructions: <br />
 Pre-reqs: Node.js, npm, VSCode (reccomended) <br />
 Run front end in "SimpleScrape/client" with "npm start" <br />
 Run backend end in "SimpleScrape/api" with "npm start" <br />
-Test backend individual files with "node <filename>"
+Test backend individual files with "node (filename)" <br />
 Send request, navigate to "Scraper" page and insert keyword <br />
 
 Notes: <br />
