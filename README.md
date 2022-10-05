@@ -19,7 +19,8 @@ Set up / running instructions: <br />
 Pre-reqs: Node.js, npm, VSCode (reccomended) <br />
 Run front end in "SimpleScrape/client" with "npm start" <br />
 Run backend end in "SimpleScrape/api" with "npm start" <br />
-Test backend individual files with "node <filename>"
+Test backend individual files with "node (filename)" <br />
+Send request, navigate to "Scraper" page and insert keyword <br />
 
 Notes: <br />
 ------------------------------------------------------------------------------------- 
@@ -30,3 +31,6 @@ isn't thread safe apparently <br />
 UPDATE: <br />
 After further research, it makes more sense to handle this outside the client <br />
 Will need to look further into solutions <br />
+
+UPDATE:  <br />
+Will be using server side implementation. Will receive keyword, scrape data, and store on mongodb cluster to be accessed through requests. <br />
