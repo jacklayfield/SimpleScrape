@@ -8,6 +8,7 @@ const PORT = 4000;
 const scraper = require("./scraper");
 const dotenv = require("dotenv");
 const scrapeDataRoute = require("./routes/scrapeData");
+const userRoute = require("./routes/user");
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api/scrapeData", scrapeDataRoute);
+app.use("/api/user", userRoute);
 
 app.listen(PORT, () => {
   console.log("Server successfully started, running on Port: " + PORT);
