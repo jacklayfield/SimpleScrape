@@ -54,23 +54,29 @@ async function scrapeSingleSite(url) {
       //console.log("success");
       contactPage = true;
     }
-
-    if (contactPage) {
-      //console.log("contact page found!");
-      // contactPageScrape(url);
-    }
   });
 
-  /* Will open a headless puppeteer browser to navigate to and extract contact information */
-  async function contactPageScrape(url) {
-    const browser = await puppeteer.launch({ headless: true });
-    const page = await browser.newPage();
+  //needs work
+  $(".a").each(function () {
+    var pageLinks = $(this).attr("href");
+    console.log("page links: " + pageLinks);
+  });
 
-    await page.goto(url);
+  if (contactPage) {
+    // contactPageScrape(url);
   }
 
   return tags;
 }
+
+/* Will open a headless puppeteer browser to navigate to and extract contact information */
+async function contactPageScrape(url) {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
+  await page.goto(url);
+}
+
 /* New scraper for the Search engine
 
 Unfortunately, node-fetch does not retreive bing results with & tags properly
@@ -147,4 +153,9 @@ module.exports = {
   main,
 };
 
+async function test(url) {
+  const res = await scrapeSingleSite(url);
+}
+
+test("https://www.nalp.org");
 // main();
