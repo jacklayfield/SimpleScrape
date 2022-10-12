@@ -6,13 +6,15 @@ Tool used to scrape the web, looking to collect information in order to connect 
 
 To do: <br />
 ------------------------------------------------------------------------------------- 
-Develop single page search <br />
--> Contact page traversal <br />
-Refine keyword search <br />
--> Use puppeteer or other tool to beter navigate <br />
-Develop feature to generate related keywords <br />
-Set up middle-ware to link api to client. <br />
-Mobile compatability (https://goshacmd.com/different-mobile-desktop-tablet-layouts-react/) <br>
+Develop single page search DONE <br />
+-> Contact page traversal PROG <br />
+Refine keyword search READY <br />
+-> Use puppeteer or other tool to beter navigate DONE <br />
+Develop feature to generate related keywords READY <br />
+Set up middle-ware to link api to client. DONE <br />
+Mobile compatability PROG <br>
+Scrape Card functionality READY <br>
+User privileges and profile PROG <br>
 
 Set up / running instructions: <br />
 ------------------------------------------------------------------------------------- 
