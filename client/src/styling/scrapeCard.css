@@ -1,0 +1,11 @@
+.scrapeCard {
+  background: lightgrey;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.scrapeCard:hover {
+  background: darkgray;
+  cursor: pointer;
+}
