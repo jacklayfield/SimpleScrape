@@ -65,11 +65,31 @@ export function Profile() {
       <Row className="gx-0">
         <Col></Col>
         <Col xs={9}>
-          <div className="columns">
-            <div className="sectionTitles">
-              <header className="sectionTitlesText">My Scrape Results</header>
+          <div className="columns" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
+            <div
+              className="sectionTitles"
+              style={{
+                background: "#212529",
+                color: "lightgray",
+              }}
+            >
+              <header
+                className="sectionTitlesText"
+                style={{
+                  fontWeight: "300",
+                  color: "#66ccff",
+                }}
+              >
+                My Scrape Results
+              </header>
             </div>
-            <div style={{ paddingLeft: 20, paddingRight: 20, paddingTop: 20 }}>
+            <div
+              style={{
+                paddingLeft: 20,
+                paddingRight: 20,
+                paddingTop: 20,
+              }}
+            >
               <Row>
                 <Col>
                   <ScrapeCards scrapeCards={half1}></ScrapeCards>
