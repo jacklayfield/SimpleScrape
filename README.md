@@ -12,9 +12,10 @@ Refine keyword search READY <br />
 -> Use puppeteer or other tool to beter navigate DONE <br />
 Develop feature to generate related keywords READY <br />
 Set up middle-ware to link api to client. DONE <br />
-Mobile compatability PROG <br>
-Scrape Card functionality READY <br>
-User privileges and profile PROG <br>
+Mobile compatability PROG <br />
+Scrape Card functionality READY <br />
+User privileges and profile PROG <br />
+Clean data READY <br />
 
 Set up / running instructions: <br />
 ------------------------------------------------------------------------------------- 
