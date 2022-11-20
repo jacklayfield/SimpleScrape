@@ -27,6 +27,10 @@ async function scrapeSites(urls) {
   }
   let time = Date.now() - start;
 
+  // combinedTagsFiltered = combinedTags.filterData()
+
+  // console.log(combinedTagsFiltered)
+
   console.log("Execution time: " + time + " milliseconds");
 
   return combinedTags;
@@ -153,9 +157,10 @@ module.exports = {
   main,
 };
 
-async function test(url) {
-  const res = await scrapeSingleSite(url);
+async function test() {
+  urls = ["https://www.nalp.org", "https://www.akc.org/dog-breeds/", "https://www.purina.com/cats/cat-breeds", "https://www.akc.org/dog-breeds/", "https://www.purina.com/cats/cat-breeds"]
+  const res = await scrapeSites(urls);
 }
 
-test("https://www.nalp.org");
+test();
 // main();

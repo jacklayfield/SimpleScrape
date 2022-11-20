@@ -71,9 +71,11 @@ function filterData() {
   const resArray = emailArr.concat(phoneArrNumFiltered);
 
   console.log(resArray);
+
+  return resArray;
 }
 
-filterData();
+// filterData();
 
 // array1 = ["eiosfj esiojf seof gghedwww.test.org grhse", "wwww.hello.net wfwef"];
 
@@ -87,4 +89,5 @@ module.exports = {
   filterUrls,
   sanitizeUrl,
   filterBlanks,
+  filterData,
 };
