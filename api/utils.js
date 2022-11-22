@@ -21,8 +21,9 @@ const filterEmails = (arr) => arr.filter((elem) => elem.includes("@"));
 /* takes in an array and filters out all elems without "www." */
 const filterUrls = (arr) => arr.filter((elem) => elem.includes("www."));
 
-/* takes in an array and filters out all elems with a length less than a normal phone # (10) */
-const filterPhone = (arr) => arr.filter((elem) => elem.length >= 10);
+/* takes in an array and filters out all elems without 10 or 11 digits (normal length of a phone number) */
+const filterPhone = (arr) =>
+  arr.filter((elem) => elem.length == 11 || elem.length == 10);
 
 /* takes in an array with strings containing urls and isolates them (useful for engines that don't make scraping easy)*/
 function sanitizeUrl(arr) {
@@ -43,18 +44,8 @@ function sanitizeUrl(arr) {
   return retVals;
 }
 
-function filterData() {
-  var theArr = [
-    "13048",
-    "guy@ex.com",
-    "gal@ex.com",
-    "dogs",
-    "1029394891",
-    "bob",
-    "59@b.com",
-  ];
+function filterData(theArr) {
   var emailArr = filterEmails(theArr);
-
   phoneArr = [];
 
   theArr.forEach((elem) => {
@@ -74,12 +65,6 @@ function filterData() {
 
   return resArray;
 }
-
-// filterData();
-
-// array1 = ["eiosfj esiojf seof gghedwww.test.org grhse", "wwww.hello.net wfwef"];
-
-// console.log(sanitizeUrl(array1));
 
 module.exports = {
   removeHttps,

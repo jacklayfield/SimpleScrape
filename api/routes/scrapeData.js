@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
     const savedNewData = await newData.save();
     res.status(200).json(savedNewData);
   } catch (error) {
-    console.log("error");
+    console.log("error saving to db");
     res.status(500).json(error);
   }
 });

@@ -9,6 +9,7 @@ const {
   filterUrls,
   sanitizeUrl,
   filterBlanks,
+  filterData,
 } = require("./utils");
 
 // all tags
@@ -21,19 +22,17 @@ async function scrapeSites(urls) {
   //loop through urls. Must use loop in order to await.
   for (let i = 0; i < urls.length; i++) {
     const curTags = await scrapeSingleSite(urls[i]);
-    // console.log("\n\n\n<CURTAGS" + i + ">\n\n\n" + curTags);
     combinedTags = combinedTags.concat(curTags);
     console.log(combinedTags.length);
   }
   let time = Date.now() - start;
 
-  // combinedTagsFiltered = combinedTags.filterData()
-
-  // console.log(combinedTagsFiltered)
+  combinedTagsFiltered = filterData(combinedTags);
+  console.log(combinedTagsFiltered);
 
   console.log("Execution time: " + time + " milliseconds");
 
-  return combinedTags;
+  return combinedTagsFiltered;
 }
 
 /* Scrapes a single website's html and returns all <a> tags */
@@ -45,7 +44,6 @@ async function scrapeSingleSite(url) {
   var contactPage = false;
 
   // grab <a> tags, add them to tags list
-  // console.log("Here");
   $("a").each((_, e) => {
     let row = $(e).text().replace(/(\s+)/g, " ");
     // console.log(`${row}`);
@@ -135,9 +133,10 @@ async function scrapeSearchEngine(keyword) {
       time / 1000 +
       " seconds, " +
       finalArray.length +
-      " results retrieved"
+      " results retrieved (Search Engine)"
   );
 
+  // console.log("sites: " + finalArray)
   return finalArray;
 }
 
@@ -158,9 +157,14 @@ module.exports = {
 };
 
 async function test() {
-  urls = ["https://www.nalp.org", "https://www.akc.org/dog-breeds/", "https://www.purina.com/cats/cat-breeds", "https://www.akc.org/dog-breeds/", "https://www.purina.com/cats/cat-breeds"]
+  urls = [
+    "https://www.nalp.org",
+    "https://www.akc.org/dog-breeds/",
+    "https://www.purina.com/cats/cat-breeds",
+    "https://www.akc.org/dog-breeds/",
+    "https://www.purina.com/cats/cat-breeds",
+  ];
   const res = await scrapeSites(urls);
 }
 
-test();
-// main();
+//test()
