@@ -44,26 +44,24 @@ function sanitizeUrl(arr) {
   return retVals;
 }
 
-function filterData(theArr) {
-  var emailArr = filterEmails(theArr);
-  phoneArr = [];
+function filterData(inSet) {
+  var emails = filterEmails(inSet);
+  phoneNums = [];
 
-  theArr.forEach((elem) => {
-    // var newElem = elem.stripChars();
+  inSet.forEach((elem) => {
     var newElem = stripChars(elem);
-    phoneArr.push(newElem);
+    phoneNums.push(newElem);
   });
 
-  // var newArr1 = stripChars(newArr);
-  var phoneArrNum = filterBlanks(phoneArr);
+  var phoneNumsCleaned = filterBlanks(phoneNums);
 
-  phoneArrNumFiltered = filterPhone(phoneArrNum);
+  phoneNumsFiltered = filterPhone(phoneNumsCleaned);
 
-  const resArray = emailArr.concat(phoneArrNumFiltered);
+  const result = emails.concat(phoneNumsFiltered);
 
-  console.log(resArray);
+  console.log(result);
 
-  return resArray;
+  return result;
 }
 
 module.exports = {
