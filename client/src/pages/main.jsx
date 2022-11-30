@@ -45,8 +45,22 @@ export function Main() {
                 <Col></Col>
                 <Col>
                   <div style={{ textAlign: "center", marginBottom: "10px" }}>
-                    <button type="submit" class="btn btn-success btn-default">
-                      <span class="glyphicon glyphicon-off"></span> Sumbit
+                    <button
+                      type="submit"
+                      class="btn btn-success btn-default"
+                      style={{
+                        backgroundColor: "#66ccff",
+                        borderWidth: 0,
+                        color: "black",
+                        borderRadius: "5px",
+                        paddingLeft: "30px",
+                        paddingRight: "30px",
+                        paddingTop: "15px",
+                        paddingBottom: "15px",
+                        fontWeight: "700",
+                      }}
+                    >
+                      <span class="glyphicon glyphicon-off"></span> Scrape
                     </button>
                   </div>
                 </Col>

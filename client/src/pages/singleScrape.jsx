@@ -1,4 +1,5 @@
 import React from "react";
+import { CollapsibleDisplay } from "../components/collapsibleDisplay";
 
 export function SingleScrape() {
   const handleClick = async (e) => {
@@ -14,6 +15,8 @@ export function SingleScrape() {
       >
         Click here to return to profile
       </div>
+
+      <CollapsibleDisplay />
     </div>
   );
 }
