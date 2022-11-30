@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../styling/about.css";
+import "../styling/theme.css";
 import { ScrapeCards } from "../components/scrapeCards";
 import { useViewport } from "../hooks/useViewport";
 // import cheerio from "cheerio";
@@ -35,23 +35,9 @@ export function Profile() {
     <div>
       <Row className="gx-0">
         <Col>
-          <div className="columns" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
-            <div
-              className="sectionTitles"
-              style={{
-                background: "#212529",
-                color: "lightgray",
-              }}
-            >
-              <header
-                className="sectionTitlesText"
-                style={{
-                  fontWeight: "300",
-                  color: "#66ccff",
-                }}
-              >
-                My Scrape Results
-              </header>
+          <div className="columns">
+            <div className="sectionTitles">
+              <header className="sectionTitlesText">My Scrape Results</header>
             </div>
             <div style={{ paddingLeft: 20, paddingRight: 20, paddingTop: 20 }}>
               <Row>
@@ -79,23 +65,9 @@ export function Profile() {
       <Row className="gx-0">
         <Col></Col>
         <Col xs={9}>
-          <div className="columns" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
-            <div
-              className="sectionTitles"
-              style={{
-                background: "#212529",
-                color: "lightgray",
-              }}
-            >
-              <header
-                className="sectionTitlesText"
-                style={{
-                  fontWeight: "300",
-                  color: "#66ccff",
-                }}
-              >
-                My Scrape Results
-              </header>
+          <div className="columns">
+            <div className="sectionTitles">
+              <header className="sectionTitlesText">My Scrape Results</header>
             </div>
             <div
               style={{
@@ -119,7 +91,4 @@ export function Profile() {
       </Row>
     </div>
   );
-  // return (
-
-  // );
 }

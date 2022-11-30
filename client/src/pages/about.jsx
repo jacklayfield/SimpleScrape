@@ -1,7 +1,7 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../styling/about.css";
+import "../styling/theme.css";
 import { useViewport } from "../hooks/useViewport";
 
 export function About() {
@@ -12,30 +12,15 @@ export function About() {
     <div>
       <Row className="gx-0">
         <Col>
-          <div className="columns" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
-            <div
-              className="sectionTitles"
-              style={{
-                background: "#212529",
-                color: "lightgray",
-              }}
-            >
-              <header
-                className="sectionTitlesText"
-                style={{
-                  fontWeight: "300",
-                  color: "#66ccff",
-                }}
-              >
-                About
-              </header>
+          <div className="columns">
+            <div className="sectionTitles">
+              <header className="sectionTitlesText">About</header>
             </div>
-            <div style={{ paddingLeft: 20, paddingRight: 20, paddingTop: 20 }}>
+            <div style={{ padding: 20 }}>
               <Row>
                 <div
                   style={{
                     fontSize: "20px",
-                    paddingBottom: "20px",
                   }}
                 >
                   Simple Scrape is designed for businesses to connect with a
@@ -48,7 +33,6 @@ export function About() {
                 <div
                   style={{
                     fontSize: "20px",
-                    paddingBottom: "20px",
                     fontWeight: "600",
                   }}
                 >
@@ -63,23 +47,9 @@ export function About() {
 
       <Row className="gx-0">
         <Col>
-          <div className="columns" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
-            <div
-              className="sectionTitles"
-              style={{
-                background: "#212529",
-                color: "lightgray",
-              }}
-            >
-              <header
-                className="sectionTitlesText"
-                style={{
-                  fontWeight: "300",
-                  color: "#66ccff",
-                }}
-              >
-                Contact
-              </header>
+          <div className="columns">
+            <div className="sectionTitles">
+              <header className="sectionTitlesText">Contact</header>
             </div>
             <div style={{ paddingLeft: 20, paddingRight: 20, paddingTop: 20 }}>
               <Row>
@@ -102,29 +72,13 @@ export function About() {
       <Row className="gx-0">
         <Col></Col>
         <Col xs={9}>
-          <div className="columns" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
-            <div
-              className="sectionTitles"
-              style={{
-                background: "#212529",
-                color: "lightgray",
-              }}
-            >
-              <header
-                className="sectionTitlesText"
-                style={{
-                  fontWeight: "300",
-                  color: "#66ccff",
-                }}
-              >
-                About
-              </header>
+          <div className="columns">
+            <div className="sectionTitles">
+              <header className="sectionTitlesText">About</header>
             </div>
             <div
               style={{
-                paddingLeft: 20,
-                paddingRight: 20,
-                paddingTop: 20,
+                padding: 20,
               }}
             >
               <Row>
@@ -144,7 +98,6 @@ export function About() {
                 <div
                   style={{
                     fontSize: "20px",
-                    paddingBottom: "20px",
                     fontWeight: "600",
                   }}
                 >
@@ -161,36 +114,19 @@ export function About() {
       <Row className="gx-0">
         <Col></Col>
         <Col xs={9}>
-          <div className="columns" style={{ background: "rgba(0, 0, 0, 0.2)" }}>
-            <div
-              className="sectionTitles"
-              style={{
-                background: "#212529",
-                color: "lightgray",
-              }}
-            >
-              <header
-                className="sectionTitlesText"
-                style={{
-                  fontWeight: "300",
-                  color: "#66ccff",
-                }}
-              >
-                Contact
-              </header>
+          <div className="columns">
+            <div className="sectionTitles">
+              <header className="sectionTitlesText">Contact</header>
             </div>
             <div
               style={{
-                paddingLeft: 20,
-                paddingRight: 20,
-                paddingTop: 20,
+                padding: 20,
               }}
             >
               <Row>
                 <div
                   style={{
                     fontSize: "20px",
-                    paddingBottom: "20px",
                   }}
                 >
                   Coming soon

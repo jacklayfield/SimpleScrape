@@ -1,0 +1,27 @@
+.footer {
+  background: "#DAA520";
+}
+
+.footerContents {
+  background: #212529;
+  color: #777777;
+  font-family: "Trebuchet MS";
+  font-style: italic;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.outerLayout {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(../blackwp1.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: auto;
+}
+
+.childLayout {
+  padding-bottom: 20px;
+  min-height: calc(100vh - 125px);
+}

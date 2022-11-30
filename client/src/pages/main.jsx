@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "../styling/main.css";
-import "../styling/about.css";
+import "../styling/theme.css";
 
 export function Main() {
   const [keyword, setKeyword] = useState(true);
@@ -29,22 +29,8 @@ export function Main() {
         <Col xs={9}>
           <div className="keywordBox">
             <form id="newtask" onSubmit={handleReq}>
-              <div
-                className="sectionTitles"
-                style={{
-                  background: "#212529",
-                  color: "lightgray",
-                }}
-              >
-                <header
-                  className="sectionTitlesText"
-                  style={{
-                    fontWeight: "300",
-                    color: "#66ccff",
-                  }}
-                >
-                  Scrape Data
-                </header>
+              <div className="sectionTitles">
+                <header className="sectionTitlesText">Scrape Data</header>
               </div>
               <div className="keywordBoxField">
                 <input
@@ -66,9 +52,6 @@ export function Main() {
                 </Col>
                 <Col></Col>
               </Row>
-              {/* <div style={{marginLeft: "auto", marginRight: "auto", width: "30%"}}>
-                
-              </div> */}
             </form>
           </div>
         </Col>
