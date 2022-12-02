@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useViewport } from "../hooks/useViewport";
 import "../styling/main.css";
 import "../styling/theme.css";
 
@@ -21,51 +22,38 @@ export function Main() {
     }
   };
 
-  return (
+  const { width } = useViewport();
+  const breakpoint = 992;
+
+  return width < breakpoint ? (
+    <div style={{ paddingTop: 100, fontSize: "30px" }}>
+      mobile version coming soon
+    </div>
+  ) : (
     <div>
       <Row className="gx-0">
         <Col></Col>
 
-        <Col xs={9}>
+        <Col xs={5}>
           <div className="keywordBox">
             <form id="newtask" onSubmit={handleReq}>
               <div className="sectionTitles">
                 <header className="sectionTitlesText">Scrape Data</header>
               </div>
-              <div className="keywordBoxField">
+              <div className="keywordBoxContainer">
                 <input
+                  className="keywordBoxField"
                   type="text"
-                  class="form-control"
-                  id="author"
                   placeholder="Enter a keyword"
                   onChange={(e) => setKeyword(e.target.value)}
                 />
               </div>
-              <Row>
-                <Col></Col>
-                <Col>
-                  <div style={{ textAlign: "center", marginBottom: "10px" }}>
-                    <button
-                      type="submit"
-                      class="btn btn-success btn-default"
-                      style={{
-                        backgroundColor: "#66ccff",
-                        borderWidth: 0,
-                        color: "black",
-                        borderRadius: "5px",
-                        paddingLeft: "30px",
-                        paddingRight: "30px",
-                        paddingTop: "15px",
-                        paddingBottom: "15px",
-                        fontWeight: "700",
-                      }}
-                    >
-                      <span class="glyphicon glyphicon-off"></span> Scrape
-                    </button>
-                  </div>
-                </Col>
-                <Col></Col>
-              </Row>
+
+              <div style={{ textAlign: "center", paddingBottom: "20px" }}>
+                <button type="submit" className="submitButton">
+                  <span class="glyphicon glyphicon-off"></span> Scrape
+                </button>
+              </div>
             </form>
           </div>
         </Col>
