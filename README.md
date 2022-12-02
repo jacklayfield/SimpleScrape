@@ -2,12 +2,19 @@
 
 Overview: <br />
 
----
-```diff
-! ANNOUNCEMENT: <br />
+# !! IMPORTANT ANNOUNCEMENT !!:
+-------------------------- <br/>
 
-For ethical reasons, this project is being put on hold, and will not be released. Due to the nature of this tool, there is no good way to prevent  people from using it for spamming purposes. Until a proper solution is developed to acheive the intended purpose (listed below) this project will be no longer supported. Currently, plans are in development to create a system that attempts to acheive a select few "matches" that are high quality results, thus preventing people from building email/phone number/social media lists. 
-```
+For ethical reasons, this project is being put on hold, and will not be released. Due to the nature of this tool,
+there is no good way to prevent  people from using it for spamming purposes. Until a proper solution is developed 
+to acheive the intended purpose (listed below) this project will be no longer supported. Currently, plans are in 
+development to create a system that attempts to acheive a select few "matches" that are high quality results, thus 
+preventing people from building email/phone number/social media lists. 
+
+-------------------------- <br/>
+-------------------------- <br/>
+-------------------------- <br/>
+
 Tool used to scrape the web, looking to collect information in order to connect people based of similar business interests or interests in general. <br />
 
 To do: <br />
