@@ -8,6 +8,7 @@ import "../styling/theme.css";
 
 export function Main() {
   const [keyword, setKeyword] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const handleReq = async (e) => {
     e.preventDefault();
@@ -15,8 +16,13 @@ export function Main() {
       keyword,
     };
     try {
-      await axios.post("/api/scrapeData", newKeyword);
-      // window.location.replace("http://localhost:3000/scraper");
+      setLoading(true);
+      const res = await axios.post("/api/scrapeData", newKeyword);
+      console.log(res.data._id);
+      localStorage.removeItem("scrapeID");
+      localStorage.setItem("scrapeID", res.data._id);
+      setLoading(false);
+      window.location.replace("http://localhost:3000/report");
     } catch (error) {
       console.log("error with posting");
     }
@@ -54,6 +60,12 @@ export function Main() {
                   <span class="glyphicon glyphicon-off"></span> Scrape
                 </button>
               </div>
+              {loading && (
+                <div className="loading-msg">
+                  Scraping Data... Sit tight this may take up to a minute
+                  <div className="loading-spinner"></div>
+                </div>
+              )}
             </form>
           </div>
         </Col>

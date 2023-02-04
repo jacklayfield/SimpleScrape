@@ -86,6 +86,7 @@ export function About() {
                   style={{
                     fontSize: "20px",
                     paddingBottom: "20px",
+                    color: "white",
                   }}
                 >
                   Simple Scrape is designed for businesses to connect with a
@@ -99,37 +100,11 @@ export function About() {
                   style={{
                     fontSize: "20px",
                     fontWeight: "600",
+                    color: "pink",
                   }}
                 >
                   NOTE: It is NOT to be used for advertising, spam, or other
                   forms of online harrassment.
-                </div>
-              </Row>
-            </div>
-          </div>
-        </Col>
-        <Col></Col>
-      </Row>
-
-      <Row className="gx-0">
-        <Col></Col>
-        <Col xs={9}>
-          <div className="columns">
-            <div className="sectionTitles">
-              <header className="sectionTitlesText">Contact</header>
-            </div>
-            <div
-              style={{
-                padding: 20,
-              }}
-            >
-              <Row>
-                <div
-                  style={{
-                    fontSize: "20px",
-                  }}
-                >
-                  Coming soon
                 </div>
               </Row>
             </div>

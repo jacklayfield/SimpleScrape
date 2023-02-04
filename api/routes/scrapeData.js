@@ -9,10 +9,14 @@ router.post("/", async (req, res) => {
 
     // executing actual scraper
     const theData = await scraper.main(req.body.keyword);
+    const theWebsites = await scraper.scrapeSearchEngine(req.body.keyword);
+
+    console.log("data " + theData);
 
     //getting result in JSON object to create new 'ScrapeData' JSON object
     const resultData = {
       rawData: theData,
+      rawWebsites: theWebsites,
     };
 
     const newData = new ScrapeData(resultData);
@@ -20,6 +24,7 @@ router.post("/", async (req, res) => {
     res.status(200).json(savedNewData);
   } catch (error) {
     console.log("error saving to db");
+    console.log(error);
     res.status(500).json(error);
   }
 });

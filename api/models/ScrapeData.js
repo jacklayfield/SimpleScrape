@@ -6,6 +6,10 @@ const ScrapeDataSchema = new mongoose.Schema(
       type: [String],
       required: true,
     },
+    rawWebsites: {
+      type: [String],
+      required: true,
+    },
   }
   // { timestamps: true }
 );

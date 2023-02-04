@@ -42,12 +42,6 @@ export function NavBar() {
               About
             </Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link eventKey={2} href="/login">
-              <i style={{ color: "gray" }} class="fa-solid fa-user"></i>
-              <> </> Sign In
-            </Nav.Link>
-          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

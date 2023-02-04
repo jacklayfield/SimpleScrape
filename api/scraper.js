@@ -38,34 +38,37 @@ async function scrapeSites(urls) {
 /* Scrapes a single website's html and returns all <a> tags */
 async function scrapeSingleSite(url) {
   let tags = [];
-  const response = await fetch(url);
-  const body = await response.text();
-  const $ = cheerio.load(body);
-  var contactPage = false;
+  console.log(url);
+  if (url.includes("https://")) {
+    const response = await fetch(url);
+    const body = await response.text();
+    const $ = cheerio.load(body);
+    var contactPage = false;
 
-  // grab <a> tags, add them to tags list
-  $("a").each((_, e) => {
-    let row = $(e).text().replace(/(\s+)/g, " ");
-    // console.log(`${row}`);
-    tags.push(`${row}`);
+    // grab <a> tags, add them to tags list
+    $("a").each((_, e) => {
+      let row = $(e).text().replace(/(\s+)/g, " ");
+      // console.log(`${row}`);
+      tags.push(`${row}`);
 
-    /* checking for contact tab if so, record it. 
+      /* checking for contact tab if so, record it. 
     (Do the check here to avoid unnecessarily opening a Pupeteer browser for non-existent contact page) */
-    if (`${row}`.includes("Contact")) {
-      console.log(`${row}`);
-      //console.log("success");
-      contactPage = true;
+      if (`${row}`.includes("Contact")) {
+        console.log(`${row}`);
+        //console.log("success");
+        contactPage = true;
+      }
+    });
+
+    //needs work
+    $(".a").each(function () {
+      var pageLinks = $(this).attr("href");
+      console.log("page links: " + pageLinks);
+    });
+
+    if (contactPage) {
+      // contactPageScrape(url);
     }
-  });
-
-  //needs work
-  $(".a").each(function () {
-    var pageLinks = $(this).attr("href");
-    console.log("page links: " + pageLinks);
-  });
-
-  if (contactPage) {
-    // contactPageScrape(url);
   }
 
   return tags;
@@ -73,7 +76,7 @@ async function scrapeSingleSite(url) {
 
 /* Will open a headless puppeteer browser to navigate to and extract contact information */
 async function contactPageScrape(url) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
   await page.goto(url);
@@ -87,13 +90,12 @@ Therefore, we must switch to puppeteer headless browser for now.
 */
 async function scrapeSearchEngine(keyword) {
   let start = Date.now();
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
   var num_res = 1;
 
   const all_sites = [];
-  console.log(keyword);
 
   // traverse through first 8 pages of results
   for (let i = 0; i < 8; i++) {
@@ -143,7 +145,6 @@ async function scrapeSearchEngine(keyword) {
 async function main(keyword) {
   const res = await scrapeSearchEngine(keyword);
   const res2 = await scrapeSites(res);
-  console.log("the result:" + res2);
   console.log(res2.length);
   return res2;
 }
@@ -154,6 +155,7 @@ function sleep(ms) {
 
 module.exports = {
   main,
+  scrapeSearchEngine,
 };
 
 async function test() {
