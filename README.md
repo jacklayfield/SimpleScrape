@@ -1,4 +1,7 @@
 # SimpleScrape
+-------------------------- <br/>
+
+# Demo: https://youtu.be/4aj7e_x8mME
 
 Purpose: Tool used to scrape the web, looking to collect information in order to connect people based of similar business interests or interests in general. <br />
 
@@ -15,7 +18,7 @@ The scraper script will then use puppeteer and Bing to gather a list of relevant
 These websites will then individually be scraped using pupetter and cheerio. It will look for contact information. <br />
 The websites and contact information data is cleaned and sorted. <br />
 All of this data is loaded into collections in Mongo. <br />
-These collections are then returned to the frontend where they can be maniuplated and rendered in the report. <br />
+These collections are then returned to the frontend where they can be maniuplated (limiting results to thwart spammers) and rendered in the report. <br />
 
 What can be improved: <br />
 
