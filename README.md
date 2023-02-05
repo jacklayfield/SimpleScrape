@@ -1,7 +1,6 @@
 # SimpleScrape
--------------------------- <br/>
 
-# Demo: https://youtu.be/4aj7e_x8mME
+# Demo: https://www.youtube.com/watch?v=J8fvorIcCiU
 
 Purpose: Tool used to scrape the web, looking to collect information in order to connect people based of similar business interests or interests in general. <br />
 
