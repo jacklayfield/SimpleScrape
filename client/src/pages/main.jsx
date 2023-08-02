@@ -9,6 +9,7 @@ import "../styling/theme.css";
 export function Main() {
   const [keyword, setKeyword] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleReq = async (e) => {
     e.preventDefault();
@@ -16,6 +17,7 @@ export function Main() {
       keyword,
     };
     try {
+      setError(false);
       setLoading(true);
       const res = await axios.post("/api/scrapeData", newKeyword);
       console.log(res.data._id);
@@ -25,6 +27,8 @@ export function Main() {
       window.location.replace("http://localhost:3000/report");
     } catch (error) {
       console.log("error with posting");
+      setLoading(false);
+      setError(true);
     }
   };
 
@@ -40,7 +44,7 @@ export function Main() {
       <Row className="gx-0">
         <Col></Col>
 
-        <Col xs={5}>
+        <Col xs={7}>
           <div className="keywordBox">
             <form id="newtask" onSubmit={handleReq}>
               <div className="sectionTitles">
@@ -64,6 +68,12 @@ export function Main() {
                 <div className="loading-msg">
                   Scraping Data... Sit tight this may take up to a minute
                   <div className="loading-spinner"></div>
+                </div>
+              )}
+
+              {error && (
+                <div className="loading-msg error">
+                  Error occured scraping! Please try again or report this error.
                 </div>
               )}
             </form>
